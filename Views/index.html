@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vagas Disponíveis</h1>
+        <div>
+            <button onclick="showCreateForm()">Criar Nova Vaga</button>
+        </div>
+        <div id="vagas-list"></div>
+        
+        <div id="create-form" style="display:none;">
+            <h2>Criar Vaga</h2>
+            <input type="text" id="title" placeholder="Título da Vaga">
+            <select id="status">
+                <option value="Aberta">Aberta</option>
+                <option value="Finalizada">Finalizada</option>
+            </select>
+            <button onclick="createVaga()">Criar</button>
+            <button onclick="hideCreateForm()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
