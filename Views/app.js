@@ -1,5 +1,3 @@
-const apiUrl = "http://localhost:5000/api/vagas";
-
 async function fetchVagas() {
     const response = await fetch(apiUrl);
     const vagas = await response.json();
@@ -63,7 +61,6 @@ async function deleteVaga(id) {
 }
 
 async function editVaga(id) {
-    // Função para editar uma vaga (exemplo simples)
     const response = await fetch(`${apiUrl}/${id}`);
     const vaga = await response.json();
     const title = prompt('Novo título:', vaga.title);
@@ -82,5 +79,4 @@ async function editVaga(id) {
     fetchVagas();
 }
 
-// Inicializa o aplicativo
 fetchVagas();

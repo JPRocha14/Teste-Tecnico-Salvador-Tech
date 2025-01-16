@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "VagasAPI",
         Version = "v1",
-        Description = "API para gerenciamento de vagas"
+        Description = "API destinada ao Teste Técnico da Salvador Tech para gerenciamento de vagas!"
     });
 });
 

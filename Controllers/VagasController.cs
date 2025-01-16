@@ -18,15 +18,12 @@ namespace VagasAPI.Controllers
         {
             _context = context;
         }
-
-        // GET: api/vagas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vaga>>> GetVagas()
         {
             return await _context.Vagas.ToListAsync();
         }
 
-        // GET: api/vagas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Vaga>> GetVaga(int id)
         {
@@ -40,7 +37,6 @@ namespace VagasAPI.Controllers
             return vaga;
         }
 
-        // POST: api/vagas
         [HttpPost]
         public async Task<ActionResult<Vaga>> PostVaga(VagaCreateDTO vagaDto)
         {
@@ -48,8 +44,8 @@ namespace VagasAPI.Controllers
             {
                 Title = vagaDto.Title,
                 Status = vagaDto.Status,
-                Created_at = DateTime.Now,  // Gerenciado pelo banco (ou pode ser ajustado)
-                Updated_at = DateTime.Now  // Gerenciado automaticamente ao atualizar
+                Created_at = DateTime.Now, 
+                Updated_at = DateTime.Now
             };
 
             _context.Vagas.Add(vaga);
@@ -58,11 +54,9 @@ namespace VagasAPI.Controllers
             return CreatedAtAction(nameof(GetVaga), new { id = vaga.Id }, vaga);
         }
 
-        // PUT: api/vagas/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVaga(int id, VagaUpdateDTO vagaDto)
         {
-            // Não há necessidade de verificar o ID do DTO, pois o ID da URL já é o único ID válido
             var vaga = await _context.Vagas.FindAsync(id);
 
             if (vaga == null)
@@ -70,14 +64,11 @@ namespace VagasAPI.Controllers
                 return NotFound();
             }
 
-            // Atualizando os campos Title e Status com os dados enviados no DTO
             vaga.Title = vagaDto.Title;
             vaga.Status = vagaDto.Status;
 
-            // Atualizando o campo Updated_at com a data e hora atual
             vaga.Updated_at = DateTime.Now;
 
-            // Marca a vaga como modificada
             _context.Entry(vaga).State = EntityState.Modified;
 
             try
@@ -100,7 +91,6 @@ namespace VagasAPI.Controllers
         }
 
 
-        // DELETE: api/vagas/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVaga(int id)
         {
@@ -110,7 +100,6 @@ namespace VagasAPI.Controllers
                 return NotFound();
             }
 
-            // Removendo a vaga do contexto e salvando as alterações no banco de dados
             _context.Vagas.Remove(vaga);
             await _context.SaveChangesAsync();
 

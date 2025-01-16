@@ -6,14 +6,13 @@ namespace VagasAPI.Models
 {
     public class Vaga
     {
-        public int Id { get; set; } // O Id será gerado automaticamente pelo banco de dados
+        public int Id { get; set; }
 
-        public string Title { get; set; } // Título da vaga
+        public string Title { get; set; }
 
-        public string Status { get; set; } // Status da vaga (Ex: "Aberta", "Fechada")
+        public string Status { get; set; }
 
-        public DateTime Created_at { get; set; } // Data de criação (gerenciada automaticamente pelo banco de dados)
-
-        public DateTime Updated_at { get; set; } // Data de atualização (gerenciada automaticamente pelo banco de dados)
+        public DateTime Created_at { get; set; } 
+        public DateTime Updated_at { get; set; }
     }
 }
